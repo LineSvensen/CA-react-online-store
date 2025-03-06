@@ -1,16 +1,20 @@
 import { useForm } from "react-hook-form";
+import { useState } from "react";
+import styles from "../components/CSS/borderStyles.module.css";
 
 export function ContactPage() {
   const {
     register,
     handleSubmit,
     formState: { errors },
-    trigger, // ✅ This enables validation onBlur
+    trigger,
   } = useForm();
+
+  const [message, setMessage] = useState("");
 
   const onSubmit = (data) => {
     console.log("Form submitted:", data);
-    alert("Form submitted successfully!");
+    setMessage("Form submitted successfully! ✅");
   };
 
   return (
@@ -18,41 +22,38 @@ export function ContactPage() {
       <h2 className="text-2xl font-bold mb-4">Contact Us</h2>
 
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-3">
-        {/* Full Name */}
         <label className="font-semibold">Full Name</label>
         <input
           type="text"
-          className="border p-2 rounded"
+          className={`${styles.input} h-10 p-2`}
           {...register("fullName", {
             required: "Full name is required",
             minLength: { value: 3, message: "Must be at least 3 characters" },
           })}
-          onBlur={() => trigger("fullName")} // ✅ Validate on blur
+          onBlur={() => trigger("fullName")}
         />
         {errors.fullName && (
           <p className="text-red-500">{errors.fullName.message}</p>
         )}
 
-        {/* Subject */}
         <label className="font-semibold">Subject</label>
         <input
           type="text"
-          className="border p-2 rounded"
+          className={`${styles.input} h-10 p-2`}
           {...register("subject", {
             required: "Subject is required",
             minLength: { value: 3, message: "Must be at least 3 characters" },
           })}
-          onBlur={() => trigger("subject")} // ✅ Validate on blur
+          onBlur={() => trigger("subject")}
         />
         {errors.subject && (
           <p className="text-red-500">{errors.subject.message}</p>
         )}
 
-        {/* Email */}
         <label className="font-semibold">Email</label>
         <input
           type="email"
-          className="border p-2 rounded"
+          className={`${styles.input} h-10 p-2`}
           {...register("email", {
             required: "Email is required",
             pattern: {
@@ -60,24 +61,22 @@ export function ContactPage() {
               message: "Enter a valid email address",
             },
           })}
-          onBlur={() => trigger("email")} // ✅ Validate on blur
+          onBlur={() => trigger("email")}
         />
         {errors.email && <p className="text-red-500">{errors.email.message}</p>}
 
-        {/* Message */}
         <label className="font-semibold">Message</label>
         <textarea
-          className="border p-2 rounded"
+          className={`${styles.input} p-2`}
           rows="4"
           {...register("body", {
             required: "Message is required",
             minLength: { value: 3, message: "Must be at least 3 characters" },
           })}
-          onBlur={() => trigger("body")} // ✅ Validate on blur
+          onBlur={() => trigger("body")}
         />
         {errors.body && <p className="text-red-500">{errors.body.message}</p>}
 
-        {/* Submit Button */}
         <button
           type="submit"
           className="bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
@@ -85,6 +84,7 @@ export function ContactPage() {
           Submit
         </button>
       </form>
+      {message && <p className="text-black font-bold mt-4">{message}</p>}
     </div>
   );
 }

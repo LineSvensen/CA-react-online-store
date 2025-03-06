@@ -11,9 +11,7 @@ export function useFetchSingleProduct(productId) {
     async function fetchSingleProduct() {
       try {
         const response = await fetch(`${API_URL}/${productId}`);
-        if (!response.ok) {
-          throw new Error("Product not found");
-        }
+        if (!response.ok) throw new Error("Product not found");
 
         const data = await response.json();
         setProduct(data.data);

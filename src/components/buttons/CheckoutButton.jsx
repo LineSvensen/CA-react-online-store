@@ -12,8 +12,8 @@ export function CheckoutButton() {
       return;
     }
 
-    clearCart(); // ✅ Clears the cart before navigating
-    navigate("/success"); // ✅ Redirect to success page
+    clearCart();
+    navigate("/success");
   };
 
   return (

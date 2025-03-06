@@ -9,8 +9,6 @@ export function AddToCartButton({ product }) {
   const handleClick = () => {
     addToCart(product);
     setAdded(true);
-
-    // Reset back to "Add to Cart" after 2 seconds
     setTimeout(() => setAdded(false), 2000);
   };
 

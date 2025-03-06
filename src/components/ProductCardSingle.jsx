@@ -13,7 +13,6 @@ export function ProductCardSingle({ product }) {
       <h1 className="text-2xl font-bold mt-4">{product.title}</h1>
       <p>{product.description}</p>
 
-      {/* ✅ Reusable Price Component */}
       <PriceDisplay
         price={product.price}
         discountedPrice={product.discountedPrice}

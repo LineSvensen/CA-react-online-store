@@ -3,7 +3,7 @@ import borderStyles from "./CSS/borderStyles.module.css";
 
 export function ReviewsList({ reviews }) {
   if (!reviews || reviews.length === 0) {
-    return <p className="text-gray-500">No reviews yet.</p>; // ✅ Show message if no reviews
+    return <p className="text-gray-500">No reviews yet.</p>;
   }
 
   return (

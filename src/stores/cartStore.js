@@ -6,7 +6,6 @@ export const useCart = create(
     (set, get) => ({
       cart: [],
 
-      // ✅ Add item to cart (or increment quantity if it exists)
       addToCart: (product) =>
         set((state) => {
           const existingItem = state.cart.find(
@@ -28,13 +27,11 @@ export const useCart = create(
           }
         }),
 
-      // ✅ Remove a product completely
       removeFromCart: (productId) =>
         set((state) => ({
           cart: state.cart.filter((item) => item.id !== productId),
         })),
 
-      // ✅ Decrease quantity (or remove if quantity is 1)
       decrementItem: (productId) =>
         set((state) => {
           const existingItem = state.cart.find((item) => item.id === productId);
@@ -56,7 +53,6 @@ export const useCart = create(
           }
         }),
 
-      // ✅ Clear the cart
       clearCart: () => set({ cart: [] }),
     }),
     {

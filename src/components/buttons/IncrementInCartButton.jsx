@@ -8,7 +8,7 @@ export function IncrementButton({ productId }) {
 
   return (
     <button
-      onClick={() => addToCart({ id: productId })} // ✅ Increase product quantity
+      onClick={() => addToCart({ id: productId })}
       className={`${styles.descrete} px-2 py-1 rounded`}
     >
       <FontAwesomeIcon icon={faPlus} />

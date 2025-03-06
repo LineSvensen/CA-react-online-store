@@ -3,24 +3,22 @@ import { useState, useEffect } from "react";
 const API_URL = import.meta.env.VITE_API_URL;
 
 export function useFetchProducts() {
-  const [products, setProducts] = useState([]); // ✅ Store products
-  const [loading, setLoading] = useState(true); // ✅ Show loading state
-  const [error, setError] = useState(null); // ✅ Handle errors
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     async function fetchProducts() {
       try {
         const response = await fetch(API_URL);
-        if (!response.ok) {
-          throw new Error("Failed to fetch products");
-        }
+        if (!response.ok) throw new Error("Failed to fetch products");
 
         const data = await response.json();
-        setProducts(data.data); // ✅ The actual products are inside `data.data`
+        setProducts(data.data);
       } catch (err) {
         setError(err.message);
       } finally {
-        setLoading(false); // ✅ Stop loading after API call
+        setLoading(false);
       }
     }
 

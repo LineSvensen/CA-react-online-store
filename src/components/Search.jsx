@@ -15,19 +15,19 @@ export function SearchBar({
 
   const handleSearch = () => {
     if (query.trim() !== "") {
-      setSearchTriggered(true); // ✅ Mark that search was triggered
+      setSearchTriggered(true);
       const filtered = products.filter((product) =>
         product.title.toLowerCase().includes(query.toLowerCase())
       );
       setFilteredProducts(filtered);
-      setShowResults(false); // ✅ Hide search suggestions after clicking
+      setShowResults(false);
     }
   };
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
-      e.preventDefault(); // ✅ NEW: Prevents default form submission
-      handleSearch(); // ✅ NEW: Triggers search when Enter is pressed
+      e.preventDefault();
+      handleSearch();
     }
   };
 
@@ -43,10 +43,9 @@ export function SearchBar({
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onKeyDown={handleKeyDown}
-          onFocus={() => setShowResults(true)} // ✅ Show dropdown when typing
+          onFocus={() => setShowResults(true)}
         />
 
-        {/* ✅ Search Button (Hides dropdown when clicked) */}
         <button
           onClick={handleSearch}
           className={`${styles.buttonBase} ${styles.neutral}`}
@@ -55,7 +54,6 @@ export function SearchBar({
         </button>
       </div>
 
-      {/* ✅ Search Suggestions (Hidden after clicking search) */}
       {query && showResults && (
         <ul className="absolute top-full left-0 w-full bg-white mt-1 rounded shadow-lg z-10">
           {products
@@ -69,7 +67,7 @@ export function SearchBar({
                 onClick={() => {
                   setQuery(product.title);
                   setSearchTriggered(true);
-                  setFilteredProducts([product]); // ✅ Only show selected product
+                  setFilteredProducts([product]);
                   setShowResults(false);
                 }}
               >
