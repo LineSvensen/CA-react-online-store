@@ -4,7 +4,7 @@ import { ProductCard } from "../components/ProductCard";
 import { useState } from "react"; // ✅ Import useState
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // ✅ Import this
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons"; // ✅ Import the arrow icon
-import headingsStyles from "../components/css/headingsStyles.module.css";
+import headingsStyles from "../components/CSS/headingsStyles.module.css";
 
 export function HomePage() {
   const { products, loading, error } = useFetchProducts();
