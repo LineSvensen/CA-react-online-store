@@ -10,8 +10,8 @@ export function ProductCardSingle({ product }) {
         alt={product.image.alt}
         className="w-full h-64 object-cover rounded"
       />
-      <h1 className="text-2xl font-bold mt-4">{product.title}</h1>
-      <p>{product.description}</p>
+      <h1 className="text-2xl font-bold mt-2 mb-2">{product.title}</h1>
+      <p className="mt-2 mb-2">{product.description}</p>
 
       <PriceDisplay
         price={product.price}

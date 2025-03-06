@@ -3,7 +3,11 @@ import borderStyles from "./CSS/borderStyles.module.css";
 
 export function ReviewsList({ reviews }) {
   if (!reviews || reviews.length === 0) {
-    return <p className="text-gray-500">No reviews yet.</p>;
+    return (
+      <p className="text-gray-500 mt-4 mb-4 text-sm">
+        No reviews yet 💔 Buy this product and be the first! ⭐
+      </p>
+    );
   }
 
   return (

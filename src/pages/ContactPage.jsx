@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import styles from "../components/CSS/borderStyles.module.css";
+import buttonStyles from "../components/CSS/buttonStyles.module.css/";
 
 export function ContactPage() {
   const {
@@ -79,7 +80,7 @@ export function ContactPage() {
 
         <button
           type="submit"
-          className="bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
+          className={`${buttonStyles.buttonBase} ${buttonStyles.neutral}`}
         >
           Submit
         </button>
