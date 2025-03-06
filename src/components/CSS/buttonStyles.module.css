@@ -1,0 +1,112 @@
+/* Define color variables */
+:root {
+  --primary-blue: #4681f4;
+  --primary-blue-hover: #6294f6;
+  --primary-green: #33b249;
+  --primary-green-hover: #36c24e;
+  --primary-red: #ed0800;
+  --primary-red-hover: #f3170f;
+  --neutral-gray: rgb(224, 224, 224);
+  --dark-grey: #303030;
+  --primary-yellow: #ffd000;
+}
+
+/* Base button styles */
+.buttonBase {
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+/* Button colors */
+.neutral {
+  background-color: var(--primary-blue);
+  color: white;
+}
+
+.neutral:hover {
+  background-color: var(--primary-blue-hover);
+}
+
+.cart {
+  color: var(--dark-grey);
+}
+
+.cart:hover {
+  color: var(--primary-blue-hover);
+}
+
+.warning {
+  background-color: var(--primary-red);
+  color: white;
+}
+
+.warning:hover {
+  background-color: var(--primary-red-hover);
+}
+
+.positive {
+  background-color: var(--primary-green);
+  color: white;
+}
+
+.positive:hover {
+  background-color: var(--primary-green-hover);
+}
+
+.added {
+  background-color: var(--primary-green);
+  color: white;
+  transform: scale(1.1);
+  animation: pulse 1.5s infinite;
+}
+
+/* Discrete (Subtle) Button */
+.descrete {
+  background-color: white;
+  color: black;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.descrete:hover {
+  border: 2px solid var(--neutral-gray);
+}
+
+/* Links */
+.links {
+  color: var(--dark-grey);
+}
+
+.links:hover {
+  color: var(--primary-blue-hover);
+}
+
+.rating {
+  color: var(--dark-grey);
+}
+
+/* Cool Pulse Animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+/* 
+import styles from "./buttonStyles.module.css"; */
+/* importer inn i componenter */
