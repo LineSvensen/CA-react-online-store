@@ -22,7 +22,7 @@ export function HomePage() {
   const resetSearch = () => {
     setFilteredProducts([]);
     setSearchTriggered(false);
-    setSelectedSortOption(null);
+    setSortOption("");
   };
 
   const displayedProducts = searchTriggered ? filteredProducts : products;

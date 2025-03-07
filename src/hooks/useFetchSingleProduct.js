@@ -8,6 +8,8 @@ export function useFetchSingleProduct(productId) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    if (!productId) return;
+    setLoading(true);
     async function fetchSingleProduct() {
       try {
         const response = await fetch(`${API_URL}/${productId}`);
@@ -17,6 +19,7 @@ export function useFetchSingleProduct(productId) {
         setProduct(data.data);
       } catch (err) {
         setError(err.message);
+        setProduct(null);
       } finally {
         setLoading(false);
       }

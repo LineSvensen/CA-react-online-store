@@ -25,8 +25,8 @@ export function CheckoutPage() {
               {/* ✅ Image on Left */}
               <Link to={`/product/${item.id}`} className="w-20 h-20 sm:w-auto">
                 <img
-                  src={item.image.url}
-                  alt={item.image.alt}
+                  src={item.image?.url || "/placeholder-image.jpg"}
+                  alt={item.image?.alt || "Product image"}
                   className="w-20 h-20 object-cover rounded"
                 />
               </Link>
