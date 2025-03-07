@@ -5,7 +5,9 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import headingsStyles from "../components/CSS/headingsStyles.module.css";
+import borderStyles from "../components/CSS/borderStyles.module.css";
 import { Loader } from "../components/Loader";
+import { SortDropdown } from "../components/SortDropdown";
 import { sortProducts } from "../utils/sortProducts";
 
 export function HomePage() {
@@ -36,17 +38,8 @@ export function HomePage() {
         setSearchTriggered={setSearchTriggered}
       />
 
-      <div className="flex justify-end mt-2">
-        <select
-          value={sortOption}
-          onChange={(e) => setSortOption(e.target.value)}
-          className="border p-2 rounded"
-        >
-          <option value="">Sort by</option>
-          <option value="low-to-high">Price: Low to High</option>
-          <option value="high-to-low">Price: High to Low</option>
-          <option value="on-sale">On Sale</option>
-        </select>
+      <div className="flex justify-end mt-2 mb-2">
+        <SortDropdown setSortOption={setSortOption} />
       </div>
 
       {searchTriggered && filteredProducts.length === 0 && (
@@ -58,7 +51,7 @@ export function HomePage() {
       {(searchTriggered || sortOption) && (
         <button
           onClick={resetSearch}
-          className="text-lg font-bold mt-4 text-blue-500 flex items-center gap-2"
+          className="text-lg font-bold mt-4 text-blue-500 flex items-center cursor-pointer gap-2"
         >
           <FontAwesomeIcon icon={faArrowLeft} /> Show All Products
         </button>
